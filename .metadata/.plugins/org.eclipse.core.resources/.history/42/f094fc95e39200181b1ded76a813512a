@@ -1,0 +1,117 @@
+/**
+ * 
+ */
+package testinterview.datastructures.hashmaps;
+
+/**
+ * @author ringo
+ *
+ */
+public class romanNumbers {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int number  = parseRomanToint("LVIII");
+		
+		System.out.println(number);
+		
+	}
+
+	
+	public static int parseRomanToint(String romanNumber)
+	{
+		char preRoman= 0;
+		int result = 0;
+		
+		for(char romanChar : romanNumber.toCharArray())
+		{
+			switch( romanChar )
+			{
+				case 'I':{ result += 1; break;}
+				case 'V':
+				{ 
+					if (preRoman != 'I')
+					{
+						result += 1; 
+					}
+					else 
+					{
+						result += 3;
+					}
+					break;
+				}
+
+				case 'X':
+				{ 
+					if (preRoman != 'I')
+					{
+						result += 10; 
+					}
+					else 
+					{
+						result += 8;
+					}
+					break;
+				}
+				case 'L':
+				{ 
+					if (preRoman != 'X')
+					{
+						result += 50; 
+					}
+					else 
+					{
+						result += 30;
+					}
+					break;
+				}
+
+				case 'C':
+				{ 
+					if (preRoman != 'X')
+					{
+						result += 100; 
+					}
+					else 
+					{
+						result += 80;
+					}
+					break;
+				}
+				case 'D':
+				{ 
+					if (preRoman != 'C')
+					{
+						result += 500; 
+					}
+					else 
+					{
+						result += 300;
+					}
+					break;
+				}
+				case 'M':
+				{ 
+					if (preRoman != 'C')
+					{
+						result += 1000; 
+					}
+					else 
+					{
+						result += 800;
+					}
+					break;
+				}
+				
+			}
+			preRoman = romanChar;
+		}
+			
+		return result;
+		
+	}
+}

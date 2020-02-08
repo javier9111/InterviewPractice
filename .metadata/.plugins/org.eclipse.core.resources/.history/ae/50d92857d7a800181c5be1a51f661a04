@@ -1,0 +1,12 @@
+package testinterview.datastructures.hashmaps;
+
+public class Node {
+	Node left,rigth;
+	int data;
+	public Node(int data)
+	{
+		this.data = data;
+	}
+	
+	
+}

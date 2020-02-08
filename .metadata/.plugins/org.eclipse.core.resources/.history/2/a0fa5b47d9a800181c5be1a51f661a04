@@ -1,0 +1,11 @@
+package testinterview.datastructures.hashmaps;
+
+public class Binarytree {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+
+}

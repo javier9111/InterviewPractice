@@ -1,0 +1,55 @@
+package testinterview.datastructures.hashmaps;
+
+public class Primepalindrome {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	
+    public int getPrimePalindrome(int N) {
+        
+    	for(int i=N; i<(2*10^8); i++)
+    	{
+    		
+    		if(isPrime(i))
+    		{
+    			if(isPalindrome(i))
+    			{
+    				return i;
+    			}
+    		}
+    	}
+    	
+    	return -1;
+    }
+
+
+	private boolean isPrime(int i) {
+		int counter=0; 
+		int num=0;
+        for(num =i; num>=1; num--)
+        {
+	    if(i%num==0)
+	    {
+		counter = counter + 1;
+	    }
+	 }
+	 if (counter ==2)
+	 {
+	    //Appended the Prime number to the String
+	    return true;
+	 }	
+	 else
+	 {
+		return false;
+	 }
+	}
+
+
+	private boolean isPalindrome(int i) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+}

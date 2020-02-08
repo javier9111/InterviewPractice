@@ -1,0 +1,52 @@
+package testinterview.zipranges;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ZipRanges {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		List collection = new ArrayList<>();
+		List zipRange1 = new ArrayList<Integer>();
+		zipRange1.add(201);
+		zipRange1.add(250);
+		List zipRange2 = new ArrayList<Integer>();
+		zipRange2.add(254);
+		zipRange2.add(260);
+		List zipRange3 = new ArrayList<Integer>();
+		zipRange3.add(245);
+		zipRange3.add(249);
+		List zipRange4 = new ArrayList<Integer>();
+		zipRange4.add(256);
+		zipRange4.add(300);
+		List zipRange5 = new ArrayList<Integer>();
+		zipRange5.add(260);
+		zipRange5.add(304);
+		
+		collection.add(zipRange1);
+		collection.add(zipRange2);
+		collection.add(zipRange3);
+		collection.add(zipRange4);
+		collection.add(zipRange5);
+		
+		
+		
+		
+
+	}
+
+	
+	
+	protected List<List<Integer>> getZipRangesCollection(List<List<Integer>> zipRangesCollection)
+	{
+		List<List<Integer>> zipColletion = new ArrayList<List<Integer>>();
+		
+		
+		for ()
+			
+		return zipColletion;
+	}
+	
+}

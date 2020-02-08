@@ -1,0 +1,25 @@
+package testinterview.datastructures.hashmaps;
+
+public class Binarytree {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Node noderoot = new Node(10);
+		Node node5 =  new Node(5);
+		Node node8 = new Node(8);
+		Node node15 = new Node (15);
+		
+		noderoot.left = node5;
+		noderoot.right = node15;
+		node5.right = node8;
+		
+		noderoot.printInOrder();
+		System.out.println("---------------------------------------");
+		noderoot.printPreOrder();
+		System.out.println("---------------------------------------");
+		noderoot.printPostOrder();
+	}
+
+
+}

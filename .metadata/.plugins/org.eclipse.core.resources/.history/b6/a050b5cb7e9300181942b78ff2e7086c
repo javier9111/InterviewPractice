@@ -1,0 +1,12 @@
+package testinterview.datastructures.hashmaps;
+
+public class ReverseLionkedList {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int se = 807 % 100;
+		System.out.println(se);
+	}
+
+}

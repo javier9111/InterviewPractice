@@ -1,0 +1,24 @@
+package testinterview.zipranges;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ZipRanges {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	
+	
+	protected List<List<Integer>> getZipRangesCollection(List<List<Integer>> zipRangesCollection)
+	{
+		List<List<Integer>> zipColletion = new ArrayList<List<Integer>>();
+		
+		
+		
+		return zipColletion;
+	}
+	
+}
