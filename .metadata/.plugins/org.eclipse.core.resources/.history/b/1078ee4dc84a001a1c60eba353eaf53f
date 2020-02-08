@@ -17,7 +17,7 @@ public class Tree implements CustomPrintInterface
         }
         if( "PostOrder".equals( order ) )
         {
-            printTreePostOrder( this.root );
+            printTreeInOrder( this.root );
         }
         
     }

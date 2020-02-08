@@ -15,10 +15,6 @@ public class Tree implements CustomPrintInterface
         {
             printTreeInOrder( this.root );
         }
-        if( "PostOrder".equals( order ) )
-        {
-            printTreePostOrder( this.root );
-        }
         
     }
 
@@ -35,19 +31,6 @@ public class Tree implements CustomPrintInterface
         }
     }
     
-    public void printTreePostOrder( Node startingValue )
-    {
-        if( startingValue.left != null )
-        {
-            printTreeInOrder( startingValue.left );
-        }
-        if( startingValue.right != null )
-        {
-            printTreeInOrder( startingValue.right );
-        }
-        System.out.println( startingValue.value );
-
-    }
     @Override
     public void printObject() {
        this.printTree("inOrder");   
