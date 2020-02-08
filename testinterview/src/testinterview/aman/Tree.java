@@ -72,6 +72,8 @@ public class Tree implements CustomPrintInterface
        this.printTree("inOrder");   
        this.printTree("PostOrder");
        this.printTree("PreOrder");
+       
+       //pruebas
     }
 
     void insert( int newValue )
