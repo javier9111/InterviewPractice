@@ -1,0 +1,27 @@
+/**
+ * 
+ */
+package com.java.test.hackerRank;
+
+/**
+ * @author ringo
+ *
+ */
+public class SalesbyMatch {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+    static int sockMerchant(int n, int[] ar) {
+    	
+        Map<Integer, Integer> colorMatches = new HashMap();
+
+    }
+
+}

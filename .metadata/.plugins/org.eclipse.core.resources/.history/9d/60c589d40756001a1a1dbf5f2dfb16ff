@@ -1,0 +1,48 @@
+package com.java.test.program.interview;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+public class Anagram {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String firstAnagram = "geeksforgeeks";
+		String secondAnagram = "eeeefggkkorss";
+		
+		boolean isAnag = isAnagram(firstAnagram, secondAnagram);
+		
+		System.out.println("First word: "+firstAnagram+" Second word: "+secondAnagram+" are anagram? "+isAnag);
+		
+		
+	}
+	
+	
+	public static boolean isAnagram(String firstAnagram, String secondAnagram)
+	{
+	
+		if(firstAnagram.length()!=secondAnagram.length())
+		{
+			return false;
+		}
+		char[] charArr = firstAnagram.toCharArray();
+		char[] charArr2 = secondAnagram.toCharArray();
+		
+		Arrays.sort(charArr);
+		Arrays.sort(charArr2);
+		
+		for(int i= 0; i<charArr.length; i++)
+		{
+			System.out.println("list1: "+charArr[i]+" list2:"+charArr2[i]);
+
+			if(charArr[i]!=charArr2[i])
+				return false;
+		}
+		//Arrays.equals(charArr,charArr2)
+		return true;
+		
+	}
+
+}

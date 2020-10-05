@@ -1,0 +1,63 @@
+package com.java.test.program.interview;
+
+import java.util.Scanner;
+
+public class Fibonacci {
+
+	
+	
+	public static void main(String[] args)
+	{
+		
+		
+		 //input to print Fibonacci series upto how many numbers
+        System.out.println("Enter number upto which Fibonacci series to print: ");
+        int number = new Scanner(System.in).nextInt();
+      
+        System.out.println("Fibonacci series upto " + number +" numbers : ");
+        //printing Fibonacci series upto number
+        
+       
+        
+//        for(int i=1; i<= number; i++)
+//        {
+//        	System.out.println("result:"+fibonnaci(i));
+//        }
+        
+        for(int i=1; i<= number; i++)
+        {
+        	System.out.println("result:"+fibo2(i));
+        }
+	}
+	
+	///for loop
+	public static int fibonnaci(int number)
+	{
+		if(number==1 || number==2)
+		{
+			return 1;
+		}
+	    
+        int antprev=1, prev=1, fibo=1;
+        
+        for(int i=3; i<= number; i++)
+        {
+        	fibo = prev+antprev;
+        	antprev= prev;
+        	prev= fibo;
+        }
+		return fibo;
+	}
+	
+	//recursion
+	public static int fibo2(int number)
+	{
+		if(number==1|| number == 2)
+		{
+			return 1;
+		}
+		return fibo2(number-1) +fibo2(number -2);
+		
+	}
+	
+}

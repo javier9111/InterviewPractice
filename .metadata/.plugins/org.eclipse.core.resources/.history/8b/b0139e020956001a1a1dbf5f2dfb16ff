@@ -1,0 +1,76 @@
+package com.java.test.program.interview;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+public class Anagram {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String firstAnagram = "yane";
+		String secondAnagram = "enya";
+		
+		boolean isAnag = isAnagram(firstAnagram, secondAnagram);
+		boolean isAnagNC = isAnagramNC(firstAnagram, secondAnagram);
+		
+		System.out.println("First word: "+firstAnagram+" Second word: "+secondAnagram+" are anagram? "+isAnag);
+		
+		System.out.println("First word: "+firstAnagram+" Second word: "+secondAnagram+" are anagram? "+isAnagNC);
+		
+	}
+	
+	
+	public static boolean isAnagram(String firstAnagram, String secondAnagram)
+	{
+	
+		if(firstAnagram.length()!=secondAnagram.length())
+		{
+			return false;
+		}
+		char[] charArr = firstAnagram.toCharArray();
+		char[] charArr2 = secondAnagram.toCharArray();
+		
+		Arrays.sort(charArr);
+		Arrays.sort(charArr2);
+		
+		for(int i= 0; i<charArr.length; i++)
+		{
+//			System.out.println("list1: "+charArr[i]+" list2:"+charArr2[i]);
+
+			if(charArr[i]!=charArr2[i])
+				return false;
+		}
+		//Arrays.equals(charArr,charArr2)
+		return true;
+		
+	}
+	
+
+	public static boolean isAnagramNC(String firstAnagram, String secondAnagram)
+	{
+
+
+		
+		char[] charArr=firstAnagram.toCharArray();
+		
+		for(char c : charArr)
+		{
+			int index =secondAnagram.indexOf(c);
+			if(index!=-1)
+			{
+				secondAnagram = secondAnagram.substring(0,index)+ secondAnagram.substring(index+1 ,secondAnagram.length());
+				System.out.println(secondAnagram);
+				System.out.println(index);
+				
+			}else
+			{
+				return false;
+			}
+		}
+		
+		return secondAnagram.isEmpty();
+	}
+
+}

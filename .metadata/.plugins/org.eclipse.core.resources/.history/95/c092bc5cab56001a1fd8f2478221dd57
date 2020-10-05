@@ -1,0 +1,71 @@
+package com.java.test.program.interview;
+
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
+public class ReverseLinkedList {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		ListNode listNode = new ListNode();
+		
+		
+		listNode.add( new Node("1")); 
+		listNode.add( new Node("2")); 
+		listNode.add( new Node("3")); 
+		listNode.add( new Node("4")); 
+		listNode.add( new Node("5")); 
+		
+
+
+		reverse(listNode);
+		print(listNode);
+
+
+//		while( node != null)
+//		{
+//			System.out.println(node.getData());
+//			node = node.getNext();
+//		}
+		
+		
+	}
+	
+	public static void print(ListNode listNode)
+	{
+		
+		Node node = listNode.getHead();
+		
+
+		//print
+		while( node != null)
+		{
+			System.out.println(node.getData());
+
+			node = node.getNext();
+		}
+	}
+	
+	public static void reverse (ListNode listNode)
+	{
+		Node pointer = listNode.getHead();
+		
+		Node prev = null, current = null;
+		
+		while(pointer!=null)
+		{
+			current = pointer;
+			pointer = pointer.getNext();
+			
+			//reverse
+			current.setNext(prev);
+			prev = current;
+			listNode.setHead(current);
+			
+		}
+	}
+
+}

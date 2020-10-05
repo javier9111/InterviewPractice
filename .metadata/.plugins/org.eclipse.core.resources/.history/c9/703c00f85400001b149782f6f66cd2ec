@@ -1,0 +1,52 @@
+/**
+ * 
+ */
+package com.java.test.hackerRank;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * @author ringo
+ *
+ */
+public class SalesbyMatch {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+    static int sockMerchant(int n, int[] ar) {
+    	
+        Map<Integer, Integer> colorMatches = new HashMap();
+        
+        for(int i = 0; i<ar.length; i++)
+        {
+        	if(colorMatches.get(ar[i])!= null)
+        	{
+        		colorMatches.put(ar[i], colorMatches.get(ar[i])+1);
+        	}
+        	else
+        	{
+        		colorMatches.put(ar[i], 1);
+        	}
+        	
+        }
+        
+        int pairs = 0;
+        for(Integer value :   colorMatches.values())
+        {
+        	
+        	pairs += value%2;
+        }
+        
+        return 0;
+
+    }
+
+}

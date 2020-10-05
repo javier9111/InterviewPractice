@@ -1,0 +1,49 @@
+package com.java.test.program.interview;
+
+
+/***
+ * this program will find the first non repeated character of a string.
+ * @author ringo
+ *
+ */
+public class firstNonRepString {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	String word= "aabccddeefgghib";	
+		
+	System.out.println(FirstNonRepCharNC(word));
+		
+	}
+
+	
+	
+	public static char FirstNonRepCharNC(String word)
+	{
+		char[] charArr= word.toCharArray();
+		
+		char nonRep = 0;
+		boolean rep = false;
+		for(int i = 0; i<charArr.length; i++)
+			
+			
+		{
+			nonRep = charArr[i];
+			for(int j= 0; j<charArr.length; j++)
+			{
+				if(i!=j && nonRep == charArr[j])
+				{
+					rep = true;
+				}
+			}
+			if(!rep)
+			{
+				return nonRep;
+			}
+		}
+		return 0;
+	}
+	
+	
+}

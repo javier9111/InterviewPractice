@@ -1,0 +1,88 @@
+package com.java.test.program.interview;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+public class RemoveDuplicates {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		int[] arr = {1,1,3,5,5,5,5,9,0,12,7,2,3,55,6,77,34,4,4,0};
+		
+		System.out.println(print(arr));
+		System.out.println(print(noCollectionsRD(arr)));
+		
+	}
+
+	
+	
+	public static String print(int[] arr)
+	{
+		String printFormat = "{";
+		for(int i = 0; i<arr.length; i++)
+		{
+			if(i==arr.length-1)
+				printFormat += arr[i];
+			else
+			printFormat += arr[i]+",";
+		}
+		printFormat += "}";
+		return printFormat;
+		
+	}
+	
+	public static int[] noCollectionsRD(int[] arr)
+	{
+		boolean isDuplicate = false;
+		
+		int[] arrRes = new int[arr.length]; 
+		int counter = 0;
+		for(int i = 0; i<arr.length; i++)
+		{
+			for(int j = i+1; j < arr.length; j++)
+			{
+
+					if(arr[i]== arr[j])
+						isDuplicate = true;
+						
+			}
+			if(!isDuplicate)
+			{
+				arrRes[counter] = arr[i];
+				counter++;
+			}
+			isDuplicate = false;
+		}
+		return arrRes;
+	}
+	
+	public static int[] mapCollectionsRD(int[] arr)
+	{
+		Map<Integer,Integer> map = new HashMap();
+		List<integer> = new ArrayList<>();
+		for(int i = 0; i<arr.length; i++)
+		{
+			if(i==0 || map.get(i)==null)
+			{
+				map.put(i, 1);
+			}
+			else
+			{
+				map.put(i, map.get(i)+1);
+			}
+		}
+		
+		Set<Entry<Integer,Integer>> entries = map.entrySet();
+		
+		for(Entry<Integer,Integer> entry : entries)
+		{
+			
+		}
+		
+	}
+}

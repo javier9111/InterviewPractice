@@ -1,0 +1,13 @@
+package com.java.test.program.interview;
+
+public class PrimeNumber {
+
+	
+	
+	
+	private static void main(String[] args)
+	{
+		System.out.println("hola");
+		
+	}
+}

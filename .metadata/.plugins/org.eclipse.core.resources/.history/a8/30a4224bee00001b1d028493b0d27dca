@@ -1,0 +1,66 @@
+/**
+ * 
+ */
+package com.java.test.hackerRank;
+
+/**
+ * @author ringo
+ *
+ *Lilah has a string, s, of lowercase English letters that she repeated infinitely many times.
+ *
+ *Given an integer, n, find and print the number of letter a's in the first  letters of Lilah's infinite string.
+ *
+ *For example, if the string s='abcac' and n=10, the substring we consider is abcacabcac, the first  10 characters of her infinite string. There are  4 occurrences of a in the substring.
+ */
+public class RepeatedString {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String s = "aba";
+		long n = Long.parseLong("10");
+		
+		System.out.println(repeatedString(s, n));
+	}
+
+    static long repeatedString(String s, long n) {
+
+    	char[] charArr = s.toCharArray();
+    	
+    	long modStr = n%charArr.length;
+ 
+    	
+    	long ainStr = 0;
+    	
+    	if( modStr == 0 )
+    	{
+    		ainStr = countAinString(charArr)*(n/charArr.length);
+    	}
+    	else{
+    		ainStr = countAinString(charArr)*(n/charArr.length)-1;
+    		System.out.println(countAinString(s.substring(0, (int)modStr).toCharArray()));
+    		ainStr += countAinString(s.substring(0, (int)modStr).toCharArray());
+    	}
+    	
+    	
+    	return ainStr;
+    }
+    
+    static long countAinString(char[] charArr)
+    {
+    	long countAinStr = 0;
+    	
+    	for(int i = 0; i<charArr.length; i++)
+    	{
+    		if(charArr[i]=='a')
+    		{
+    			countAinStr++;
+    		}
+    		
+    	}
+    	return countAinStr;
+    }
+}

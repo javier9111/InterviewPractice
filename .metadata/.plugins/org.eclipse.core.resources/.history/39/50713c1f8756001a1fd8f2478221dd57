@@ -1,0 +1,79 @@
+package com.java.test.program.interview;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import javax.management.RuntimeErrorException;
+
+/***
+ * this program will find the first non repeated character of a string.
+ * @author ringo
+ *
+ */
+public class firstNonRepString {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	String word= "aabccddeefgghib";	
+		
+	System.out.println(FirstNonRepCharNC(word));
+		
+	}
+
+	
+	
+	public static char FirstNonRepCharNC(String word)
+	{
+		char[] charArr= word.toCharArray();
+		
+		char nonRep = 0;
+		boolean rep = false;
+		for(int i = 0; i<charArr.length; i++)
+			
+			
+		{
+			nonRep = charArr[i];
+			for(int j= 0; j<charArr.length; j++)
+			{
+				if(i!=j && nonRep == charArr[j])
+				{
+					rep = true;
+				}
+			}
+			if(!rep)
+			{
+				return nonRep;
+			}
+			rep = false;
+		}
+		return 0;
+	}
+	
+	public static char FirstNonRepCharWC(String word)
+	{
+		char[] charArr = word.toCharArray();
+		
+		Map< Character, Integer> map= new LinkedHashMap<>();
+		
+		for(int i=0; i<charArr.length; i++)
+		{
+			if(map.get(charArr[i])== null)
+			{
+				map.put(charArr[i], 1);
+			}
+			else{
+				map.put(charArr[i],map.get(charArr[i])+1);
+			}
+		}
+		for(Entry<Character,Integer> entry : map.entrySet())
+		{
+			if(entry.getValue() == 1)
+			{
+				return entry.getKey();
+			}
+		}
+		throw new RuntimeException("Invalid string");
+	}
+}

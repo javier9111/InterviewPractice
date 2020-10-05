@@ -1,0 +1,68 @@
+/**
+ * 
+ */
+package com.java.test.hackerRank;
+
+/**
+ * @author ringo
+ *
+ *An avid hiker keeps meticulous records of their hikes. During the last hike that took exactly  steps, for every step it 
+ *was noted if it was an uphill U, , or a downhill D,  step. Hikes always start and end at sea level, and each step up or down represents a  
+ *unit change in altitude. We define the following terms:
+ *A mountain is a sequence of consecutive steps above sea level, starting with a step up from sea level and ending with a step down to sea level.
+ *A valley is a sequence of consecutive steps below sea level, starting with a step down from sea level and ending with a step up to sea level.
+ *Given the sequence of up and down steps during a hike, find and print the number of valleys walked through.
+ */
+public class CountingValleys {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int steps = 8;
+		String path = "DDDUUDUUUUUUUUUU";
+		
+		System.out.println( countingValleys(steps,  path));
+				
+		
+	}
+	
+	
+	
+    public static int countingValleys(int steps, String path) {
+    // Write your code here
+
+    	//for each valley to be valid needs to start with consecutive down steps and at least one up
+    	int valleys = 0;
+    	int level = 0;
+    	
+    	char[] pathArr = path.toCharArray();
+    	
+    	for(int i = 0; i<pathArr.length; i++)
+    	{
+    		
+    		switch(pathArr[i])
+    		{
+				case 'D' :{
+					level -=1;
+					break;
+				}
+    			case 'U' :{
+    				level+=1;
+    				if(level == 0 )
+    				{
+    					valleys +=1;
+    				}
+    				break;
+    			}
+
+    		}
+    		System.out.println(pathArr[i]+" level: "+level+" valley: "+valleys);
+    	}
+    	
+    	
+    	return valleys;
+    }
+}

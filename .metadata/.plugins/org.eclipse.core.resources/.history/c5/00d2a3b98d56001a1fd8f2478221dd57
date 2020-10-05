@@ -1,0 +1,38 @@
+package com.java.test.program.interview;
+
+import java.util.Set;
+
+/***
+ * This Program will find all the permutations that can be found in a word
+ * @author ringo
+ *
+ */
+public class PermutationsString {
+
+	
+	
+	public static void main(String[] args)
+	{
+		
+	}
+	
+	
+	public static Set<String> permutations(String word)
+	
+	{
+		
+		char[] charArr = word.toCharArray();
+		
+		
+		for(int i=0; i<charArr.length; i++)
+		{
+			String permutation="";
+			for(int j=0; i<charArr.length; j++)
+			{
+				
+			}
+		}
+		
+		return null;
+	}
+}

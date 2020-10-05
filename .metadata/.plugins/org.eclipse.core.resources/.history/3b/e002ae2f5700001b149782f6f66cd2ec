@@ -1,0 +1,59 @@
+/**
+ * 
+ */
+package com.java.test.hackerRank;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * @author ringo
+ *
+ */
+public class SalesbyMatch {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int n = 7;
+		int[] ar = {10, 20 ,20 ,10, 10 ,30 ,50 ,10 ,20};
+		
+		System.out.println(sockMerchant(n, ar));
+	}
+	
+	
+    static int sockMerchant(int n, int[] ar) {
+    	
+        Map<Integer, Integer> colorMatches = new HashMap<Integer, Integer>();
+        
+        for(int i = 0; i<ar.length; i++)
+        {
+        	if(colorMatches.get(ar[i])!= null)
+        	{
+        		colorMatches.put(ar[i], colorMatches.get(ar[i])+1);
+        	}
+        	else
+        	{
+        		colorMatches.put(ar[i], 1);
+        	}
+        	
+        }
+        
+        int pairs = 0;
+        for(Integer value :   colorMatches.entrySet())
+        {
+        	if(value != 1)
+        	{
+        	pairs += value%2;
+        	}
+        	System.out.println( "This is the value from values "+value + " And this is pair" + pairs + " operation "+ value%2);
+        }
+        
+        return pairs;
+
+    }
+
+}

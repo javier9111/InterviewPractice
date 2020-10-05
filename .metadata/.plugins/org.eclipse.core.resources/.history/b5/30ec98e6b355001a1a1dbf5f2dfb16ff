@@ -1,0 +1,21 @@
+package com.java.test.program.interview;
+
+public class Fibonacci {
+
+	
+	
+	public static void main(String[] args)
+	{
+		
+		
+		int counter =5;
+		int prev = 0;
+		int fibonacci=0;
+		for(int i =0; i<=counter; i++)
+		{
+			fibonacci = prev+i;
+			System.out.println(fibonacci);
+			prev = i;
+		}
+	}
+}

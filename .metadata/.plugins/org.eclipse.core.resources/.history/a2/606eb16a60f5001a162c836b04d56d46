@@ -1,0 +1,59 @@
+package io.javabrains.unit3;
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+import io.javabrains.common.Person;
+
+public class MethodReferenceExample2 {
+
+	public static void main(String[] args) {
+		List<Person> People = Arrays.asList(
+				new Person("Charles", "Dickens", 60),
+				new Person("Lewis", "Carroll", 42),
+				new Person("Thomas", "Carlyle", 51),
+				new Person("Charlotte", "Bronte", 45),
+				new Person("Matthew", "Arnold", 39)
+				);
+		
+		Predicate<Person> predicatePerson = p -> p.getLastName().startsWith("C");
+		
+		System.out.println("Printing all persons");
+		performConditionally(People, predicatePerson, System.out::println); // p -> method(p)
+		
+		
+		int sum = Arrays.stream(new int[]{1, 2, 3})
+				  .filter(i -> i >= 2)
+				  .map(i -> i * 3)
+				  .sum();
+		System.out.println(sum);
+		
+		
+		Map<String, List<String>> people = new HashMap<>();
+		people.put("John", Arrays.asList("555-1123", "555-3389"));
+		people.put("Mary", Arrays.asList("555-2243", "555-5264"));
+		people.put("Steve", Arrays.asList("555-6654", "555-3242"));
+		 
+		List<String> phones = people.values().stream()
+		  .flatMap(p ->p.stream())
+		    .collect(Collectors.toList());
+		
+		System.out.println(people.values());
+		System.out.println(phones);
+				
+	}
+
+	private static void performConditionally(List<Person> people, Predicate<Person> predicate, Consumer<Person> consumer) {
+		for (Person p : people) {
+			if (predicate.test(p)) {
+				consumer.accept(p);
+			}
+		}
+	}
+}

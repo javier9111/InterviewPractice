@@ -1,0 +1,39 @@
+package com.java.test.program.interview;
+
+public class StringPalindroime {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		
+		String palindrome = "abba";
+		
+		char[] arr = palindrome.toCharArray();
+		
+		int mid =0;
+		if(arr.length%2==0)
+		{
+		
+		 mid = arr.length/2;
+		 
+		 
+		}
+		else
+		{
+			mid =(arr.length/2)+1;
+		}
+		int j = arr.length-1;
+		
+		for(int i=1; i<=mid; i++)
+			
+		{
+			System.out.println("value of i:"+arr[i]);
+			System.out.println("value of j:"+ arr[j]);
+			
+		}
+		System.out.println(arr.length);
+		System.out.println(mid);
+	}
+
+}

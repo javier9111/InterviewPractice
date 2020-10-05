@@ -1,0 +1,41 @@
+package com.java.test.program.interview;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+public class Anagram {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String firstAnagram = "anamari";
+		String secondAnagram = "mariana";
+		
+		
+	}
+	
+	
+	public boolean isAnagram(String firstAnagram, String secondAnagram)
+	{
+	
+		if(firstAnagram.length()!=secondAnagram.length())
+		{
+			return false;
+		}
+		List<String> listF = (List) Arrays.asList(firstAnagram.toCharArray()); 
+		List<String> listS = (List) Arrays.asList(secondAnagram.toCharArray());
+		
+		Collections.sort(listF);
+		Collections.sort(listS);
+		
+		for(int i= 0; i<listF.size(); i++)
+		{
+			if(listF.get(i)!=listS.get(i))
+				return false;
+		}
+		return true;
+		
+	}
+
+}
