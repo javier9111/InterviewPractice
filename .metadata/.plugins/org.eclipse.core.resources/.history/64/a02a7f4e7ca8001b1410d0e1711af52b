@@ -1,0 +1,40 @@
+package LeetCodeExc;
+
+public class MergeListNode {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	  public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+	        
+	        
+	      
+
+		  return l1;
+	    }
+	  
+	  public static ListNode nxtList(ListNode nxtl1, ListNode nxtl2, ListNode resultNode ){
+		  
+		  ListNode tempNode;
+		  if(nxtl1.val>nxtl2.val)
+		  {
+			  tempNode = new ListNode(nxtl1.val );
+			  
+		  }
+		  else if(nxtl1.val==nxtl2.val)
+		  {
+			  tempNode = new ListNode(nxtl2.val,nxtl2 );
+		  }
+		  else{
+			  tempNode = new ListNode(nxtl2.val );
+		  }
+		  nxtList
+		  
+		  return tempNode;
+	  }
+	  
+	  
+
+}

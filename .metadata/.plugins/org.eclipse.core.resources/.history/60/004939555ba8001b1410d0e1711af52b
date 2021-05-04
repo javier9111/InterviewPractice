@@ -1,0 +1,60 @@
+package LeetCodeExc;
+
+import java.nio.charset.Charset;
+import java.util.Stack;
+
+/***
+ * Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+ *                                                                                                                         
+ * An input string is valid if:                                                                                           
+ *                                                                                                                         
+ * Open brackets must be closed by the same type of brackets.                                                             
+ * Open brackets must be closed in the correct order.                                                                     
+ */
+public class Parentesis {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String s = "()[]{}";
+		String s2 = "([)]";
+		String s3 = "([])]";
+		String s4 = "(((([[[[])]";
+		String s5 = "(((([[[[])))]";
+		String s6= "((([][])[][]))";
+	}
+	
+	
+	public static boolean isValid(String s) {
+        
+		
+		Stack<Character > pStack = new Stack<Character >();
+		boolean valid = true;
+		
+		for(int i=0; i< s.length(); i++)
+		{
+			if(pStack.isEmpty() || s.charAt(i)=='['||s.charAt(i)=='('||s.charAt(i)=='{')
+			{
+				pStack.push(s.charAt(i));
+				
+			}
+			else{
+				
+				switch(s.charAt(i)){
+				
+				case ']': {
+					if(pStack.peek() == '(' ||pStack.peek() =='{' )
+					{
+						valid = false;
+					}
+				} 
+				
+				} 
+			}
+		}
+		
+		
+		return true;
+    }
+
+}

@@ -1,0 +1,57 @@
+package LeetCodeExc;
+/***
+ * 
+ * 
+ * 
+ * Implement strStr().
+ * 
+ * Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+ * 
+ * Clarification:
+ * 
+ * What should we return when needle is an empty string? This is a great question to ask during an interview.
+ * 
+ * For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C's strstr() and Java's indexOf().
+ * @author ringo
+ *
+ */
+public class IsinStr {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String input ="hello";
+		String needle = "ll";
+		int index = strStr(input, needle);
+	}
+	 public static int strStr(String haystack, String needle) {
+		 
+		 if(haystack.equals(""))
+			return 0;
+		 
+		 int startAt = haystack.indexOf(needle.charAt(0));
+		 int j=0;
+		 
+		 if(startAt == -1)
+		 {
+			 return -1;
+		 }else
+		 {
+			 for(int i =startAt; i<haystack.length(); i++)
+			 {
+				 if(haystack.charAt(i) == needle.charAt(j) )
+				 {
+					 j++;
+				 }
+				 else{
+					 j = 0;
+				 }
+				 if( j == needle.length())
+				 {
+					 return i-needle.length();
+				 }
+			 }
+		 }
+	        return 0;
+	    }
+}
