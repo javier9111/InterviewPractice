@@ -1,0 +1,55 @@
+package LeetCodeExc.medium;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.Stack;
+
+/***
+ * Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+ * @author ringo
+ *
+ */
+public class ParenthesesGen {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		List<String> generatePar = generateParenthesis(3);
+		for(String item: generatePar)
+		{
+			System.out.println(item);
+		}
+	}
+
+public static List<String> generateParenthesis(int n) {
+	
+	List<String> listset =  new ArrayList<String>();
+	
+	recursivePare(listset, new StringBuilder(), n, 0, 0);
+	// 1 () 2 ()() (()) 3 ()()() ()(()) (())() ((())) (()())
+	//this means n ( and n ) in anyorder that matches the close
+
+        return listset;
+    }
+	
+	public static void recursivePare(List<String> list, StringBuilder par,int n, int right, int left)
+	{
+		  if (par.length() == n * 2) {
+			  list.add(par.toString());
+	            return;
+	        }
+		if(left<n)
+		{
+			par.append("(");
+			recursivePare(list, par, n, right, left+1);
+			//par.deleteCharAt(par.length()-1);
+		}
+		if(right<left)
+		{
+			par.append(")");
+			recursivePare(list, par, n, right+1, left);
+			par.deleteCharAt(par.length()-1);
+		}
+	}
+}

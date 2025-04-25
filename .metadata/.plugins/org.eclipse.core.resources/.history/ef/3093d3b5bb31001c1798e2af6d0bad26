@@ -1,0 +1,72 @@
+package CrackingCodeInterview.Arrays;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * Given a string, write a function to check if it is a permutation of  a palindrome. A palindrome is a word or phrase that is the same forwards and backwards.
+ * A palindrome is rearrangement of letters. The palindrome does not need to be limited to be limited to just dictionary words.
+ * you can ignore casing and non letters characters.
+ * @author ringo
+ *
+ */
+public class PalindromePermutation {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		
+		String palindrome = "Tact Coaa";
+		
+		System.out.println( isPalindromPermutation(palindrome));
+		
+		
+	}
+
+	
+	
+	public static boolean isPalindromPermutation(String str)
+	{
+		char[] charArr = str.toLowerCase().toCharArray();
+		
+		
+		//I need to check that every charater has at least 2 repeated values in order 
+		//comply with a palindrome characteristic 
+		Map<Character,Integer> mapChar = new HashMap<Character,Integer>();
+		
+		
+		for(int i=0; i<charArr.length; i++)
+		{
+			if(Character.valueOf(charArr[i]) >= Character.valueOf('a') && Character.valueOf(charArr[i]) <= Character.valueOf('z') )
+			{
+				if(mapChar.get(charArr[i])==null)
+				{
+				mapChar.put(charArr[i], 1);
+				}else
+				{
+					mapChar.put(charArr[i], mapChar.get(charArr[i])+1);
+				}
+			}
+		}
+		
+		boolean maxoneOdd = false;
+		for(Integer value : mapChar.values())
+		{
+			if(value %2 == 1){
+				
+				if(maxoneOdd)
+				{
+					return false;
+				}else{
+					maxoneOdd = true;
+				}
+				
+			}
+			
+		}
+		
+		
+		return true;
+	}
+}

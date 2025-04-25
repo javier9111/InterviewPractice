@@ -1,0 +1,73 @@
+package leetCode;
+
+
+/***
+ * A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+
+Given a string s, return true if it is a palindrome, or false otherwise.
+
+ 
+
+Example 1:
+
+Input: s = "A man, a plan, a canal: Panama"
+Output: true
+Explanation: "amanaplanacanalpanama" is a palindrome.
+Example 2:
+
+Input: s = "race a car"
+Output: false
+Explanation: "raceacar" is not a palindrome.
+Example 3:
+
+Input: s = " "
+Output: true
+Explanation: s is an empty string "" after removing non-alphanumeric characters.
+Since an empty string reads the same forward and backward, it is a palindrome.
+ * @author ringo
+ *
+ */
+public class IsPalindromeChar {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		String s = "anita lava la tina";
+		String s2 = "anita lava,,,,,,,,,,,, la tina";
+		String s3 = "anita lava NO la tina";
+		String s4 = "A man, a plan, a canal: Panama";
+		
+		
+
+		System.out.println(isPalindrome( s4));
+		
+	}
+	
+	
+	
+	
+	
+	public static boolean isPalindrome(String s) {
+	
+		String fullString = s.trim().toLowerCase();
+		int pointer1 = 0 , pointer2= s.length()-1;
+		
+		while(pointer1 != pointer2 ){
+
+			if(fullString.charAt(pointer1)<97 || fullString.charAt(pointer1)>122){
+				pointer1++;
+			}else if(fullString.charAt(pointer2)<97 || fullString.charAt(pointer2)>122){
+				pointer2--;
+			}else if(fullString.charAt(pointer1)!=fullString.charAt(pointer2)){
+				return false;
+			}else{
+			
+			pointer1++;
+			pointer2--;
+			}
+		}
+        return true;
+    }
+
+}

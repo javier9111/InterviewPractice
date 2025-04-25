@@ -1,0 +1,37 @@
+package LeetCodeExc;
+
+public class PalindromeNumber {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		int x = 12321;
+		
+		System.out.println(isPalindrome(x));
+		
+	}
+
+	
+	
+	public static boolean isPalindrome(int x) {
+	        
+		if(x<0) return false;
+		
+		
+		int tempx = x;
+		int reverse =0;
+		while(tempx>0){
+			
+			reverse *=10;
+			reverse=reverse+tempx%10;
+			tempx=tempx/10;	
+		}
+		
+		System.out.println(reverse);
+		
+		
+		return reverse == x;
+	    }
+	
+}

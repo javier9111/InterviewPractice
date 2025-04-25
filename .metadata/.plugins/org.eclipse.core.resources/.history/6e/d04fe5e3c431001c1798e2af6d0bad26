@@ -1,0 +1,74 @@
+package CrackingCodeInterview.Arrays;
+
+
+/***
+ * there are three types of edits that can be performed on String: insert, remove, or replace.
+ * Given two strings , write a function to check if they are one edit (or zero edits away);
+ * @author ringo
+ *
+ */
+public class OneWay {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		System.out.println(isOneWay("pale", "bake"));
+		
+		
+		
+	}
+
+	
+	
+	public static boolean isOneWay (String str1, String str2)
+	{
+		if(str1.length()-str2.length() >=2) return false;
+		
+		char[] charArr = str1.toCharArray();
+		int countContains =0;
+		
+		
+		//add acction
+		if(str1.length()> str2.length())
+		{
+			
+			for(int i=0; i<charArr.length; i++)
+			{
+				if(!str2.contains(String.valueOf(charArr[i])))
+				{
+					countContains++;
+				}
+			}
+		}
+		//remove acction
+		else if(str1.length()<str2.length())
+		{
+			
+			for(int i=0; i<charArr.length; i++)
+			{
+				if(!str1.contains(String.valueOf(charArr[i])))
+				{
+					countContains++;
+				}
+			}
+		}
+		//replace action
+				else if(str1.length()==str2.length())
+				{
+					
+					for(int i=0; i<charArr.length; i++)
+					{
+						if(!str2.contains(String.valueOf(charArr[i])))
+						{
+							countContains++;
+						}
+					}
+				}
+		
+		
+		return countContains<=1;
+	}
+	
+	
+}

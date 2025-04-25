@@ -47,6 +47,8 @@ public class Unit1ExerciseSolutionJava7 {
 			}
 		});
 		
+		
+		printConditionally(people, p-> p.getFirstName().startsWith("T"));
 	}
 
 	private static void printConditionally(List<Person> people, Condition condition) {

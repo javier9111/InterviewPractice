@@ -1,0 +1,79 @@
+package CrackingCodeInterview.LinkedLists;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import CrackingCodeInterview.LinkedLists.common.Node;
+import CrackingCodeInterview.LinkedLists.common.Utils;
+/***
+ * remove duplicates within a linked list
+ *
+ * @author ringo
+ *
+ */
+public class RemoveDups {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Node n1 = new Node(2);
+		Node n2 = new Node(2);
+		Node n3 = new Node(3);
+		Node n4 = new Node(2);
+		Node n5 = new Node(5);
+		Node n6 = new Node(2);
+		Node n7 = new Node(6);
+		Node n8 = new Node(2);
+		Node n9 = new Node(2);
+		
+		
+		n1.next = n2;
+		n2.next = n3;
+		n3.next = n4;
+		n4.next = n5;
+		n5.next = n6;
+		n6.next = n7;
+		n7.next = n8;
+		n8.next = n9;
+		n9.next = null;
+		
+		
+		Node result = removeDups(n1);
+		
+		Utils.printNodes(result);
+		
+	}
+	
+	
+	
+	
+	public static Node removeDups(Node head){
+		
+		if(head == null) return null;
+		
+		List<Integer> list = new ArrayList<Integer>();
+		list.add(head.data);
+		Node n = head;
+		
+		while(n.next != null){
+			
+			
+			if(list.contains(n.next.data)){
+				
+				n.next = n.next.next;
+			}else{
+				
+				list.add(n.next.data);
+				
+			}
+			
+			n=n.next;
+		}
+		
+		return head;
+		
+	}
+	
+
+
+}

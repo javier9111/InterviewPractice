@@ -1,0 +1,49 @@
+package LeetCodeExc.medium;
+
+public class AddTwoNumsLinkedList {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	 public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+	        
+	        
+		 
+		 return null;
+	    }
+	 
+	 public static int getListInt(ListNode list){
+		 
+		 ListNode temp = list.next;
+		 int sum=list.val;
+		 int counter = 1;
+		 int insidecounter =1;
+		 int tempSum = 0;
+		 while (temp.next != null)
+		 {
+			 
+			 tempSum += temp.val*10;
+			 
+			 if(counter == insidecounter)
+			 {
+				 counter ++;
+				 
+				 sum+=tempSum;
+				 
+				 insidecounter = 0;
+				 
+				 temp = temp.next;
+			 }
+			
+			  insidecounter++;
+		 }
+		 
+		 
+		 
+		 
+		 return 0;
+	 }
+}
+
+

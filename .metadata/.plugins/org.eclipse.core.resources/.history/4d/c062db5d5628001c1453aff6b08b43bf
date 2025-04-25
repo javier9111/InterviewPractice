@@ -1,0 +1,42 @@
+package CrackingCodeInterview.Arrays;
+
+import java.util.Arrays;
+
+/***
+ * Given two string, check if one is the permutation of the other
+ * @author ringo
+ *
+ */
+public class CheckPermutation {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	
+	public static boolean checkPermutation(String s1, String s2)
+	{
+		
+		if(s1.length() != s2.length()) return false;
+		
+		
+		char[] temps1 = s1.toCharArray();
+				Arrays.sort(temps1); 
+
+		char[] temps2 = s1.toCharArray();
+				Arrays.sort(temps2); 
+		
+		for(int i=0; i<temps1.length; i++)
+		{
+			if(temps1[i]!=temps2[i])
+			{
+				return false;
+			}
+		}
+		
+						
+						
+		return true;
+	}
+}

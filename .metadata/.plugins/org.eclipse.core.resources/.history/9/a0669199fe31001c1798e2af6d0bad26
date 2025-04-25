@@ -1,0 +1,28 @@
+package CrackingCodeInterview.Arrays;
+
+public class StringCompression {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		fib(144);
+		
+		int[] arr = {1,1,2,3,5,8,13,21,34,55,89};
+		
+		
+		
+	}
+
+	
+	 static int fib(int n)
+	    {
+	    if (n <= 1)
+	       return n;
+	    
+	    System.out.println(n+",");
+	    return fib(n-1) + fib(n-2);
+	    }
+	      
+	    
+	
+}

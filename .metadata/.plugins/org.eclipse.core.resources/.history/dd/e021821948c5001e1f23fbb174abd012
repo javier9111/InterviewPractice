@@ -1,0 +1,108 @@
+package LeetCodeExc;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+/***
+ * Given an array nums of size n, return the majority element.
+
+The majority element is the element that appears more than ⌊n / 2  times. You may assume that the majority element always exists in the array.
+
+Example 1:
+
+Input: nums = [3,2,3]
+Output: 3
+Example 2:
+
+Input: nums = [2,2,1,1,1,2,2]
+Output: 2
+ 
+
+Constraints:
+
+n == nums.length
+1 <= n <= 5 * 104
+-109 <= nums[i] <= 109
+ * 
+ * 
+ * @author ringo
+ *
+ */
+public class MajorityElement {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int[] nums={3,2,3};
+		int[] nums2={2,2,1,1,1,2,2};
+		int[] nums3={3,2,3};
+		int[] nums4={3,2,3};
+		
+		
+		System.out.println(majorityElement2(nums));
+	}
+
+	
+	
+	
+//solution with O(N) space	
+public static int majorityElement(int[] nums) {
+        
+	if(nums.length==1) return nums[0];
+	
+	//first need to save all the numbers and their rep into an hasmap
+	//then we iterate the map to find the n/2 +1 number reps
+	
+	Map<Integer,Integer> map = new HashMap<>();
+	
+	for(int i : nums){
+		map.put(i, map.get(i)!=null?map.get(i)+1:1);
+	}
+	
+	
+	for(Map.Entry<Integer, Integer> entry : map.entrySet()){
+		if(entry.getValue() > (nums.length/2)){
+			return entry.getKey();
+		}
+	}
+	
+	
+	
+	return -1;
+    }
+
+
+public static int majorityElement2(int[] nums) {
+    
+	if(nums.length==1) return nums[0];
+	
+	//first I need to order the array to know the reps
+	
+	Arrays.sort(nums);
+	int reps =1;
+	int prev = nums[0];
+	for(int i = 1; i< nums.length; i++){
+		
+		
+		if(prev == nums[i]){
+			reps++;
+		}else{
+			
+			if(reps > nums.length/2){
+				return prev;
+			}
+			reps=0;
+			prev=nums[i];
+		}
+		
+		
+		
+		
+	}
+	
+	
+	
+	return -1;
+    }
+}

@@ -1,0 +1,62 @@
+package CrackingCodeInterview.Arrays;
+
+
+/**
+ * Write a method to replace all spaces in a string with '20%'. 
+ * 
+ * You  may assume that the string has sufficient space at the end to hold the additional characters, and that you are given the "true"
+ * length of the string.(Note: if implementing in java, please use a character array so that you can perform this operation in place.)
+ * 
+ * EXAMPLE
+ * input "MR John Smith", 13
+ * output "Mr%20John%20Smith
+ * @author ringo
+ *
+ */
+public class URLify {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String s = "MR John Smith";
+		System.out.println(URLifyParse(s));
+	}
+  
+	
+	
+	
+	static public String URLifyParse(String s){
+		
+		char[] charString = s.toCharArray();
+		char[] charArray = new char[s.length()*2];
+		
+		int j=0;
+		
+		for(int i=0; i<s.length(); i++)
+		{
+			
+			if(charString[i] == ' ' )
+			{
+				charArray[j]='%';
+				++j;
+				charArray[j]='2';
+				++j;
+				charArray[j]='0';
+				++j;
+				System.out.println("charArray: "+charArray[j] + " variable j :"+j+" charString: "+charString[i]+" variable i:"+i);
+			}
+			else
+			{
+				char temChar = 0;
+				temChar = charString[i];
+				
+				charArray[j] = temChar;
+				System.out.println("charArray: "+charArray[j] + " variable j :"+j+" charString: "+charString[i]+" variable i:"+i);
+				j++;
+			}
+
+		}
+		
+		return charString.toString();
+	}
+}

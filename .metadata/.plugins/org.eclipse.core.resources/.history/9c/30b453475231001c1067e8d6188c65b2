@@ -1,0 +1,24 @@
+package io.javabrains.unit2;
+
+import java.util.function.Consumer;
+
+public class ClosuresExample {
+
+	public static void main(String[] args) {
+		int a = 10;
+		int b = 20;
+		Consumer<Integer> consumerInt =i -> System.out.println(i + b)
+		doProcess(a, consumerInt );
+
+	}
+	
+	
+	public static void doProcess(int i, Process p) {
+		p.process(i);
+	}
+
+}
+
+interface Process {
+	void process(int i);
+}

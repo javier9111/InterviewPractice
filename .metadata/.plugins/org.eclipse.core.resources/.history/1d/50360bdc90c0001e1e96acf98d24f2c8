@@ -1,0 +1,111 @@
+package LeetCodeExc;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/***
+ * Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+ 
+
+Example 1:
+
+Input: s = "anagram", t = "nagaram"
+Output: true
+Example 2:
+
+Input: s = "rat", t = "car"
+Output: false
+ 
+
+Constraints:
+
+1 <= s.length, t.length <= 5 * 104
+s and t consist of lowercase English letters.
+
+ * 
+ * @author ringo
+ *
+ */
+public class ValidAnagram {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		String s = "rat";
+		
+		String t = "tar";
+		
+		
+		System.out.println(isAngramFaster(s, t));
+		
+		
+	}
+	
+	
+	//first solution
+public static boolean isAnagram(String s, String t) {
+        
+	if(s.length()!=t.length()) return false;
+		
+	
+	List<String> listChar = new ArrayList<>();
+	
+	for(int i=0; i<t.length(); i++)
+	{
+		listChar.add(t.charAt(i)+"");
+	}
+	
+	
+
+	for(int i=0; i<s.length(); i++)
+	{
+		if(listChar.contains(s.charAt(i)+"")){
+			
+			listChar.remove(s.charAt(i)+"");
+		}else{
+			return false;
+		}
+		
+	}
+	
+	
+	
+	
+	
+	return listChar.isEmpty();
+    }
+
+
+
+public static boolean isAngramFaster(String s, String t) {
+	if(s.length()!=t.length()) return false;
+	
+	
+	String temp = s;
+	
+	
+	for(int i=0; i<t.length(); i++){
+		
+		if(temp.contains(t.charAt(i)+"")){
+			
+			System.out.println(temp.substring(temp.lastIndexOf(t.charAt(i)), t.charAt(i)););
+			temp = temp.substring(temp.lastIndexOf(t.charAt(i)), t.charAt(i));
+		}else{
+			return false;
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
+	return temp.isEmpty();
+}
+
+}

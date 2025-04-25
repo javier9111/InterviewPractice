@@ -1,0 +1,96 @@
+package LeetCodeExc;
+
+public class Addbinary {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		
+		
+		String a = "1010";
+		String b = "1011";
+		
+		
+		System.out.println(addBinary(a, b));
+		
+		
+	}
+
+	
+	
+	
+	
+	public static String addBinary(String a, String b) {
+	        
+		if(a.length() == 0) return b;
+		if(b.length() == 0) return a;
+		
+		StringBuilder result = new StringBuilder();
+		boolean carry=false;
+		int countA=a.length()-1;
+		int countB=b.length()-1;
+		while(countA>=0||countB>=0){
+			
+			
+			if(countA>=0 && countB>=0){
+				
+			
+				if(a.charAt(countA)=='1'&&b.charAt(countB)=='1'){
+					carry=true;
+					result.append("0");
+				}else if((a.charAt(countA)=='0'&&b.charAt(countB)=='1')||a.charAt(countA)=='1'&&b.charAt(countB)=='0'){
+					if(carry){
+						carry=false;
+						result.append("0");
+					}else{
+						result.append("1");
+					}
+				}
+			
+			}else{
+				if(countA<0 && countB>=0){
+					if(carry){
+						carry=false;
+						if(b.charAt(countB)=='1'){
+						result.append("0");
+					}else{
+						result.append("1");
+					}
+					
+					
+				}else{
+					result.append(b.charAt(countB));
+				}
+				
+			}else if(countB<0 && countA>=0){
+				if(carry){
+					carry=false;
+					if(a.charAt(countA)=='1'){
+						carry=true;
+					result.append("0");
+				}else{
+					result.append("1");
+				}
+				
+				
+			}else{
+				result.append(a.charAt(countA));
+			}
+					
+				}
+			}
+			
+			countA--;
+			countB--;
+		}
+		
+		
+		if(carry){
+			result.append(1);
+		}
+		
+		
+		return result.reverse().toString();
+	    }
+}

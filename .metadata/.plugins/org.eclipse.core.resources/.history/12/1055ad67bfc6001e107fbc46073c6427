@@ -1,0 +1,96 @@
+package LeetCodeExc;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/***
+ * 
+ * Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must appear as many times as it shows in both arrays and you may return the result in any order.
+
+ 
+
+Example 1:
+
+Input: nums1 = [1,2,2,1], nums2 = [2,2]
+Output: [2,2]
+Example 2:
+
+Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+Output: [4,9]
+Explanation: [9,4] is also accepted.
+ 
+
+Constraints:
+
+1 <= nums1.length, nums2.length <= 1000
+0 <= nums1[i], nums2[i] <= 1000
+ 
+ * @author ringo
+ *
+ */
+public class IntersectionArrays2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		int[] nums1 ={1,2,2,1};
+		int[] nums2 ={2,2};
+		
+		
+		List<Integer> result = intersect(nums1, nums2);
+		
+		result.forEach(System.out::println);
+		
+		
+	}
+
+	
+	
+	//using maps
+	 public static List<Integer> intersect(int[] nums1, int[] nums2) {
+	        
+		 
+		 Map<Integer,Integer> map1 = new HashMap<>();
+		 Map<Integer,Integer> map2 = new HashMap<>();
+		 
+		 
+		 
+		 
+		 for(int i=0; i<nums1.length; i++){
+			 
+			 map1.put(nums1[i], map1.getOrDefault(nums1[i],0)+1);
+			 
+		 }
+		 
+		for(int i=0; i<nums2.length; i++){
+					 
+					 map2.put(nums2[i], map2.getOrDefault(nums2[i],0)+1);
+					 
+		}
+		 
+		 
+				List<Integer> result = new ArrayList<>();
+		for( Map.Entry<Integer, Integer> entry : map1.entrySet()){
+			
+			if(map2.containsKey(entry.getKey())){
+				
+				int times= entry.getKey() == entry.getValue()? entry.getValue() : Math.abs( map2.get(entry.getKey()) - entry.getValue());
+				
+				for(int i=0; i<times; i++){
+					result.add(entry.getKey());
+				}
+				
+			}
+			
+			
+		}
+//		 int[] arr = new int[result.size()];
+		 
+		 
+		 
+		 return result;
+	    }
+}

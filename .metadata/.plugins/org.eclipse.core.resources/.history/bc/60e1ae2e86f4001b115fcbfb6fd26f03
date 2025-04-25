@@ -1,0 +1,68 @@
+package LeetCodeExc.medium;
+
+/***
+ * Given a linked list, swap every two adjacent nodes and return its head. 
+ * You must solve the problem without modifying the values in the list's nodes 
+ * (i.e., only nodes themselves may be changed.)
+ * Input: head = [1,2,3,4]
+ * Output: [2,1,4,3]
+ * Input: head = []
+ * Output: []
+ * Input: head = [1]
+ * Output: [1]
+ * @author ringo
+ *
+ */
+public class SwapNodes {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+     
+//		ListNode node4 = new ListNode(4);
+		ListNode node3 = new ListNode(3);
+		ListNode node2 = new ListNode(2,node3);
+		ListNode node1 = new ListNode(1,node2);
+		
+		ListNode swap = swapPairs(node1);
+		
+		System.out.println("[");
+		while(swap != null)
+		{
+			System.out.println(swap.val+",");
+			swap = swap.next;
+			
+		}
+		System.out.println("]");
+		
+	}
+
+  public static ListNode swapPairs(ListNode head) {
+     
+	  if(head == null|| head.next == null)
+	  {
+		  return head;
+	  }
+	  ListNode dummyHead = new ListNode(0);
+	  
+	  ListNode curr = dummyHead;
+	  
+	  int prevValue =0, nextVal =0;
+	  
+	  while( head  != null && head.next !=null)
+	  {
+		  System.out.println("this is the head val: "+head.val);
+//		  System.out.println("this is the head next val: "+head.next.val);
+		  prevValue = head.val;
+		  nextVal = head.next.val;
+		  curr.next = new ListNode(nextVal, new ListNode(prevValue));		 
+		  curr = curr.next.next;
+		  head = head.next.next;
+//		  System.out.println("this is the head val: "+head.val);
+//		  System.out.println("this is the head next val: "+head.next.val);
+//		  System.out.println("this is the value of curr: "+head.next != null);
+	  }
+	  curr.next = head;
+			  
+	return dummyHead.next;
+    }
+}

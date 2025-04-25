@@ -1,0 +1,41 @@
+package LeetCodeExc.medium;
+
+import java.util.HashSet;
+import java.util.Set;
+
+/****
+ * Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
+ *
+ *	Each row must contain the digits 1-9 without repetition.
+ *	Each column must contain the digits 1-9 without repetition.
+ *	Each of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without repetition.
+ *	Note:
+ *
+ *	A Sudoku board (partially filled) could be valid but is not necessarily solvable.
+ *	Only the filled cells need to be validated according to the mentioned rules.
+ * @author ringo
+ *
+ */
+public class ValidSudoku {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+   public boolean isValidSudoku(char[][] board) {
+	// fix value for sudoku  is 9 and for the internal sudoku is 3x3 
+	//first though is to validate the column and row, with a simple for with a map
+	//or doing brute force with 2 for
+	//then try to validate against the 3x3 sudoku by doing again a 2 for
+	
+	//Validate Rows and colums
+	   int r=0, c= 0, counter=0;
+	   Set numlist = new HashSet();
+while(r<=9 && c <=9)
+	{
+		
+	}
+       return false; 
+    }
+}

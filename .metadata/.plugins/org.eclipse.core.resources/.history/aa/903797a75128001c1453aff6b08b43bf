@@ -1,0 +1,44 @@
+package CrackingCodeInterview.Arrays;
+
+import java.util.Arrays;
+
+/**
+ * implement and  algorithm to determine if a string has all unique characters. 
+ * What if you cannot use additional  data structures? 
+ * @author ringo
+ *
+ */
+public class isUnique {
+ 
+	
+	static void main (String[] args){
+		
+		
+		
+		String myString  = "12345678";
+		
+	System.out.println(	isUnique(myString));
+		
+	}	
+	
+	
+	static boolean isUnique(String string ){
+		
+		
+		char[] charArray = string.toCharArray();
+		
+		Arrays.sort(charArray);
+		
+		int temp=-1;
+		for(int i=0; i<charArray.length; i++){
+			
+			if(temp == charArray[i])
+			{
+				return false;
+			}
+			temp = charArray[i];
+		}
+		
+		return true;
+	}
+}
